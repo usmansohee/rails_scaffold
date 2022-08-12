@@ -1,5 +1,13 @@
 <h1>New Article</h1>
 
+<%if @article.errors.any? %>
+  <ul>
+    <%@article.errors.full_messages.each do |name| %>
+      <li><%= name %></li>
+    <%end %>
+  </ul>
+<%end %>
+
 <%= render 'form', article: @article %>
 
 <%= link_to 'Back', articles_path %>
